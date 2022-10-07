@@ -1,0 +1,145 @@
+body {
+	background-color: #181a1b;
+	margin: 0;
+	padding: 0;
+}
+.header {
+	display: flex;
+	background-color: #141414;
+	justify-content: center;
+	align-items: center;
+	height: 10vh;
+	width: 100vw;
+	color: #fff;
+	font-size: 3rem;
+	font-family: 'monotype corsiva';
+}
+.wrapper {
+	height: 85vh;
+	width: 100vw;
+	max-width: 100%;
+	background-color: #181a1b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+}
+.submit {
+	display: flex;
+	flex-direction: column;
+	height: 5vh;
+	align-items: flex-end;
+	background-color: #181a1b;
+}
+.modal {
+	z-index: 3;
+	position: absolute;
+	display: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #101010;
+	border-radius: 1.5rem;
+	color: #fff;
+	height: 50vh;
+	width: 40vh;
+	align-items: center;
+	justify-content: center;
+	font-family: 'monotype corsiva';
+	transition: all;
+}
+.modalHead {
+	position: absolute;
+	top: 0;
+	font-size: 1.2rem;
+}
+.modalBody {
+	width: 100%;
+	padding: 20px;
+	text-align: left;
+	font-size: 1.2rem;
+}
+.table-grid {
+	display: grid;
+	width: fit-content;
+	padding: 12px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	background-color: transparent;
+}
+.elem {
+	background-color: #222;
+	border: 2px solid cyan;
+}
+.lant {
+	grid-row: 9;
+}
+.gap4 {
+	grid-column: span 2;
+	grid-row: 9/11;
+}
+.act {
+	grid-row: 10;
+}
+.gap1 {
+	grid-column: span 16;
+}
+.gap2 {
+	grid-column: span 10;
+	grid-row: span 2;
+}
+.elem-input {
+	height: 50px;
+	width: 40px;
+	background-color: transparent;
+	color: #fff;
+	font-size: 1.5rem;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+.close {
+	position: absolute;
+	top: 25px;
+	right: 20px;
+}
+.button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	height: 50px;
+	width: 150px;
+	color: #777;
+	transform: translate(-50%, -50%);
+	border: 2px #777 solid;
+	transition: all 0.4s;
+}
+.button::after {
+	position: absolute;
+	content: '';
+	top: 0;
+	height: 100%;
+	left: 0;
+	width: 0;
+	background-color: #ff003b;
+	transition: all 0.4s;
+}
+.button:hover {
+	color: #fff;
+}
+.button:hover::after {
+	width: 100%;
+}
+.btnTxt {
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+	font-family: 'monotype corsiva';
+	font-size: 1.1rem;
+}
+ion-icon {
+	color: white;
+	font-size: 1.5rem;
+}
