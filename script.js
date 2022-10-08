@@ -1,12 +1,14 @@
-var inputs, modal, modalHead, modalBody;
+var inputs, modal, modalHead, modalBody, modalFoot, resultArr;
 
 function onLoad() {
 	inputs = document.getElementsByClassName('elem-input');
 	modal = document.getElementsByClassName('modal')[0];
 	modalHead = document.getElementsByClassName('modalHead')[0];
 	modalBody = document.getElementsByClassName('modalBody')[0];
+	modalFoot = document.getElementsByClassName('modalFoot')[0];
 	for (i = 0; i < 118; i++) {
 		inputs[i].addEventListener('input', updateValue);
+		inputs[i].setAttribute('spellcheck', 'false');
 	}
 }
 
@@ -20,22 +22,60 @@ function updateValue(e) {
 		e.target.value = value;
 	}
 }
+
 function submit() {
 	attempted = 0;
 	score = 0;
+	resultArr = [];
 
 	for (i = 0; i < 118; i++) {
 		if (inputs[i].value != '') {
 			attempted += 1;
-		}
-		if (inputs[i].value == elements[i]) {
-			score += 1;
+			if (inputs[i].value == elements[i]) {
+				score += 1;
+				resultArr.push('🟩');
+			} else {
+				resultArr.push('🟥');
+			}
+		} else {
+			resultArr.push('⬜');
 		}
 	}
 
-	score >= 40
-		? (modalHead.innerHTML = '<h2>Well Done<h2>')
-		: (modalHead.innerHTML = '<h2>Could Improve<h2>');
+	gap1 = '⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛';
+	gap2 = '⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛';
+	gap3 = '⬛⬛';
+
+	periodicResult =
+		resultArr.slice(0, 1).join('') +
+		gap1 +
+		resultArr.slice(1, 2).join('') +
+		'<br>' +
+		resultArr.slice(2, 4).join('') +
+		gap2 +
+		resultArr.slice(4, 10).join('') +
+		'<br>' +
+		resultArr.slice(10, 12).join('') +
+		gap2 +
+		resultArr.slice(12, 18).join('') +
+		'<br>' +
+		resultArr.slice(18, 36).join('') +
+		'<br>' +
+		resultArr.slice(36, 54).join('') +
+		'<br>' +
+		resultArr.slice(54, 72).join('') +
+		'<br>' +
+		resultArr.slice(72, 90).join('') +
+		'<br>' +
+		'<br>' +
+		gap3 +
+		resultArr.slice(90, 104).join('') +
+		gap3 +
+		'<br>' +
+		gap3 +
+		resultArr.slice(104, 118).join('') +
+		gap3 +
+		'<br>';
 
 	result =
 		'Attempted: ' +
@@ -44,7 +84,14 @@ function submit() {
 		score +
 		'<br>Incorrect: ' +
 		(attempted - score);
-	modalBody.innerHTML = result;
+
+	score >= 40
+		? (modalHead.innerHTML = '<h2>Well Done<h2>')
+		: (modalHead.innerHTML = '<h2>Could Improve<h2>');
+
+	modalBody.innerHTML = periodicResult;
+
+	modalFoot.innerHTML = result;
 
 	handleModal(true);
 }
@@ -70,7 +117,7 @@ elements = [
 	'Na',
 	'Mg',
 	'Al',
-	'SI',
+	'Si',
 	'P',
 	'S',
 	'Cl',
