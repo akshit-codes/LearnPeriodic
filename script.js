@@ -1,4 +1,4 @@
-var inputs, modal, modalHead, modalBody, modalFoot, resultArr;
+var inputs, modal, modalHead, modalBody, modalFoot, resultArr, popup;
 
 function onLoad() {
 	inputs = document.getElementsByClassName('elem-input');
@@ -6,6 +6,7 @@ function onLoad() {
 	modalHead = document.getElementsByClassName('modalHead')[0];
 	modalBody = document.getElementsByClassName('modalBody')[0];
 	modalFoot = document.getElementsByClassName('modalFoot')[0];
+	popup = document.getElementsByClassName('popupInactive')[0];
 	for (i = 0; i < 118; i++) {
 		inputs[i].addEventListener('input', updateValue);
 		inputs[i].setAttribute('spellcheck', 'false');
@@ -142,6 +143,14 @@ function copy() {
 	el.select();
 	document.execCommand('copy'); // Copy command
 	document.body.removeChild(el);
+	handlePopup();
+}
+
+function handlePopup() {
+	popup.classList.add('popupActive');
+	setTimeout(() => {
+		popup.classList.remove('popupActive');
+	}, 3000);
 }
 
 elements = [

@@ -2,6 +2,7 @@ body {
 	background-color: #181a1b;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 .header {
 	display: flex;
@@ -168,4 +169,26 @@ body {
 	right: 5%;
 	font-size: 1.5rem;
 	border-radius: 5px;
+}
+.popupInactive {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 100%);
+	background-color: #006994;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+.popupActive {
+	transform: translate(-50%, -50%);
+}
+ion-icon {
+	border-radius: 4px;
+	padding: 2px;
+	transition: all 0.3s;
+}
+ion-icon:hover {
+	background-color: #333;
 }
