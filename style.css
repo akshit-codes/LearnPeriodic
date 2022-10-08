@@ -42,16 +42,21 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #101010;
+	background-color: transparent;
 	border-radius: 1.5rem;
-	color: #fff;
-	height: 50vh;
+	color: transparent;
+	height: 0;
 	width: fit-content;
 	align-items: center;
 	justify-content: center;
 	font-family: 'monotype corsiva';
-	transition: all;
+	transition: background-color 0.6s, height 0.6s, color 0.35s;
 	user-select: none;
+}
+.modalActive {
+	color: #fff;
+	background-color: #101010;
+	height: 50vh;
 }
 .modalHead {
 	position: absolute;
@@ -125,6 +130,7 @@ body {
 	transform: translate(-50%, -50%);
 	border: 2px #777 solid;
 	transition: all 0.4s;
+	user-select: none;
 }
 .button::after {
 	position: absolute;
@@ -155,20 +161,28 @@ body {
 	left: 1vw;
 }
 .close {
-	color: white;
+	color: transparent;
 	font-size: 1.5rem;
 	position: absolute;
 	top: 25px;
 	right: 20px;
+	transition: all 0.1s;
+}
+.modalActive .close {
+	color: #fff;
 }
 .copy {
 	z-index: 5;
 	position: absolute;
-	color: white;
+	color: transparent;
 	top: 70%;
 	right: 5%;
 	font-size: 1.5rem;
 	border-radius: 5px;
+	transition: all 0.1s;
+}
+.modalActive .copy {
+	color: #fff;
 }
 .popupInactive {
 	position: absolute;

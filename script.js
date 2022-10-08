@@ -131,17 +131,23 @@ function submit() {
 function handleModal(bool) {
 	if (bool) {
 		modal.setAttribute('style', 'display:flex');
+		setTimeout(() => {
+			modal.classList.add('modalActive');
+		}, 10);
 	} else {
-		modal.setAttribute('style', 'display:none');
+		modal.classList.remove('modalActive');
+		setTimeout(() => {
+			modal.setAttribute('style', 'display:none');
+		}, 500);
 	}
 }
 
 function copy() {
 	const el = document.createElement('textarea');
-	el.value = copyText; //str is your string to copy
+	el.value = copyText;
 	document.body.appendChild(el);
 	el.select();
-	document.execCommand('copy'); // Copy command
+	document.execCommand('copy');
 	document.body.removeChild(el);
 	handlePopup();
 }
