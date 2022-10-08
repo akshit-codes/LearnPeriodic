@@ -15,6 +15,7 @@ body {
 	color: #fff;
 	font-size: 3rem;
 	font-family: 'monotype corsiva';
+	user-select: none;
 }
 .wrapper {
 	height: 85vh;
