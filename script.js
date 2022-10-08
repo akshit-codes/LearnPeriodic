@@ -77,6 +77,37 @@ function submit() {
 		gap3 +
 		'<br>';
 
+	copyText =
+		resultArr.slice(0, 1).join('') +
+		gap1 +
+		resultArr.slice(1, 2).join('') +
+		'\n' +
+		resultArr.slice(2, 4).join('') +
+		gap2 +
+		resultArr.slice(4, 10).join('') +
+		'\n' +
+		resultArr.slice(10, 12).join('') +
+		gap2 +
+		resultArr.slice(12, 18).join('') +
+		'\n' +
+		resultArr.slice(18, 36).join('') +
+		'\n' +
+		resultArr.slice(36, 54).join('') +
+		'\n' +
+		resultArr.slice(54, 72).join('') +
+		'\n' +
+		resultArr.slice(72, 90).join('') +
+		'\n' +
+		'\n' +
+		gap3 +
+		resultArr.slice(90, 104).join('') +
+		gap3 +
+		'\n' +
+		gap3 +
+		resultArr.slice(104, 118).join('') +
+		gap3 +
+		'\n';
+
 	result =
 		'Attempted: ' +
 		attempted +
@@ -95,12 +126,22 @@ function submit() {
 
 	handleModal(true);
 }
+
 function handleModal(bool) {
 	if (bool) {
 		modal.setAttribute('style', 'display:flex');
 	} else {
 		modal.setAttribute('style', 'display:none');
 	}
+}
+
+function copy() {
+	const el = document.createElement('textarea');
+	el.value = copyText; //str is your string to copy
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy'); // Copy command
+	document.body.removeChild(el);
 }
 
 elements = [

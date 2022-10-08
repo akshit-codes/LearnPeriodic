@@ -37,6 +37,7 @@ body {
 	position: absolute;
 	display: none;
 	flex-direction: column;
+	padding: 10px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -49,6 +50,7 @@ body {
 	justify-content: center;
 	font-family: 'monotype corsiva';
 	transition: all;
+	user-select: none;
 }
 .modalHead {
 	position: absolute;
@@ -66,9 +68,10 @@ body {
 }
 .modalFoot {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100%;
+	text-align: left;
 	font-size: 1.2rem;
+	margin-left: 20px;
 }
 .table-grid {
 	display: grid;
@@ -100,19 +103,14 @@ body {
 	grid-row: span 2;
 }
 .elem-input {
-	height: 50px;
-	width: 40px;
+	height: 6.5vh;
+	width: 2.5vw;
 	background-color: transparent;
 	color: #fff;
 	font-size: 1.5rem;
 	text-align: center;
 	border: none;
 	outline: none;
-}
-.close {
-	position: absolute;
-	top: 25px;
-	right: 20px;
 }
 .button {
 	position: relative;
@@ -155,7 +153,19 @@ body {
 	position: absolute;
 	left: 1vw;
 }
-ion-icon {
+.close {
 	color: white;
 	font-size: 1.5rem;
+	position: absolute;
+	top: 25px;
+	right: 20px;
+}
+.copy {
+	z-index: 5;
+	position: absolute;
+	color: white;
+	top: 70%;
+	right: 5%;
+	font-size: 1.5rem;
+	border-radius: 5px;
 }
