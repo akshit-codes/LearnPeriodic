@@ -207,3 +207,10 @@ ion-icon {
 ion-icon:hover {
 	background-color: #333;
 }
+.logo {
+	transition: transform 0.35s;
+	border-radius: 50%;
+}
+.logo:hover {
+	transform: rotate(120deg);
+}
