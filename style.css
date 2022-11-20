@@ -5,8 +5,8 @@ body {
 	overflow: hidden;
 }
 ::selection {
-	color: #fff;
-	background: #000;
+	color: #000;
+	background: #fff;
 }
 .header {
 	display: flex;
