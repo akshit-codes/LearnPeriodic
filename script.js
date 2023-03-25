@@ -18,7 +18,6 @@ function updateValue(e) {
 	if (value.length > 0) {
 		value = value.substr(0, 2);
 		if (value[0] == ' ') {
-			console.log('c1');
 			value = '';
 		}
 		if (value[1] == ' ') {
