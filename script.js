@@ -17,9 +17,18 @@ function updateValue(e) {
 	value = e.target.value;
 	if (value.length > 0) {
 		value = value.substr(0, 2);
-		value.length == 1
-			? (value = value[0].toUpperCase())
-			: (value = value[0].toUpperCase() + value[1].toLowerCase());
+		if (value[0] == ' ') {
+			console.log('c1');
+			value = '';
+		}
+		if (value[1] == ' ') {
+			value = value[0];
+		}
+		if (value.length != 0) {
+			value.length == 1
+				? (value = value[0].toUpperCase())
+				: (value = value[0].toUpperCase() + value[1].toLowerCase());
+		}
 		e.target.value = value;
 	}
 }
