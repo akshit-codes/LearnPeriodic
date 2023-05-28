@@ -167,6 +167,12 @@ function handlePopup() {
 	}, 3000);
 }
 
+document.addEventListener('keyup', function (event) {
+	if (event.code === 'Enter') {
+		submit();
+	}
+});
+
 elements = [
 	'H',
 	'He',
