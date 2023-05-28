@@ -171,6 +171,11 @@ document.addEventListener('keyup', function (event) {
 	if (event.code === 'Enter') {
 		submit();
 	}
+	if (event.code === 'Escape') {
+		if (modal.classList.contains('modalActive')) {
+			handleModal(false);
+		}
+	}
 });
 
 elements = [
