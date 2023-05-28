@@ -6,6 +6,7 @@ function onLoad() {
 	modalHead = document.getElementsByClassName('modalHead')[0];
 	modalBody = document.getElementsByClassName('modalBody')[0];
 	modalFoot = document.getElementsByClassName('modalFoot')[0];
+	barrier = document.getElementsByClassName('barrier')[0];
 	popup = document.getElementsByClassName('popupInactive')[0];
 	for (i = 0; i < 118; i++) {
 		inputs[i].addEventListener('input', updateValue);
@@ -139,11 +140,14 @@ function submit() {
 function handleModal(bool) {
 	if (bool) {
 		modal.setAttribute('style', 'display:flex');
+		barrier.setAttribute('style', 'display:block');
+		console.log('meow');
 		setTimeout(() => {
 			modal.classList.add('modalActive');
 		}, 10);
 	} else {
 		modal.classList.remove('modalActive');
+		barrier.setAttribute('style', 'display:none');
 		setTimeout(() => {
 			modal.setAttribute('style', 'display:none');
 		}, 500);
