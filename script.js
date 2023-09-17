@@ -180,7 +180,121 @@ document.addEventListener('keyup', function (event) {
 			handleModal(false);
 		}
 	}
+	if (
+		event.code === 'ArrowDown' ||
+		event.code === 'ArrowUp' ||
+		event.code === 'ArrowLeft' ||
+		event.code === 'ArrowRight'
+	) {
+		if (document.activeElement.name.substr(0, 5) === 'input') {
+			activeElem = document.activeElement.name;
+			currentNo = parseInt(activeElem.substr(5, 7));
+			targetName = getTaregtName(currentNo, event.code);
+			targetElem = document.getElementsByName(targetName)[0];
+			console.log(targetElem);
+			targetElem.focus();
+		}
+	}
 });
+
+function getTaregtName(inputNo, direction) {
+	if (direction === 'ArrowDown') {
+		if (inputNo == 1) {
+			targetNo = 3;
+		} else if (inputNo >= 2 && inputNo <= 12) {
+			targetNo = inputNo + 8;
+		} else if (inputNo >= 13 && inputNo <= 39) {
+			targetNo = inputNo + 18;
+		} else if (inputNo >= 40 && inputNo <= 86) {
+			targetNo = inputNo + 32;
+		} else if (inputNo >= 87 && inputNo <= 89) {
+			targetNo = 58;
+		} else if (inputNo >= 90 && inputNo <= 103) {
+			targetNo = 103;
+		} else if (inputNo >= 104 && inputNo <= 116) {
+			targetNo = inputNo - 45;
+		} else if (inputNo >= 117 || inputNo <= 118) {
+			targetNo = 71;
+		}
+	}
+	if (direction === 'ArrowUp') {
+		if (inputNo >= 1 && inputNo <= 2) {
+			targetNo = 1;
+		} else if (inputNo >= 3 && inputNo <= 4) {
+			targetNo = 1;
+		} else if (inputNo >= 5 && inputNo <= 10) {
+			targetNo = 2;
+		} else if (inputNo >= 11 && inputNo <= 20) {
+			targetNo = inputNo - 8;
+		} else if (inputNo >= 21 && inputNo <= 25) {
+			targetNo = 12;
+		} else if (inputNo >= 26 && inputNo <= 30) {
+			targetNo = 13;
+		} else if (inputNo >= 31 && inputNo <= 57) {
+			targetNo = inputNo - 18;
+		} else if (inputNo == 58) {
+			targetNo = 89;
+		} else if (inputNo >= 59 && inputNo <= 71) {
+			targetNo = inputNo + 45;
+		} else if (inputNo >= 72 && inputNo <= 118) {
+			targetNo = inputNo - 32;
+		}
+	}
+	if (direction === 'ArrowRight') {
+		if (
+			(inputNo >= 1 && inputNo <= 56) ||
+			(inputNo >= 58 && inputNo <= 70) ||
+			(inputNo >= 72 && inputNo <= 88) ||
+			(inputNo >= 90 && inputNo <= 102) ||
+			(inputNo >= 104 && inputNo <= 117)
+		) {
+			targetNo = inputNo + 1;
+		} else if (inputNo == 57) {
+			targetNo = 72;
+		} else if (inputNo == 71) {
+			targetNo = 90;
+		} else if (inputNo == 89) {
+			targetNo = 104;
+		} else if (inputNo == 103) {
+			targetNo = 103;
+		} else if (inputNo == 118) {
+			targetNo = 58;
+		}
+	}
+	if (direction === 'ArrowLeft') {
+		if (
+			(inputNo >= 2 && inputNo <= 57) ||
+			(inputNo >= 59 && inputNo <= 71) ||
+			(inputNo >= 73 && inputNo <= 89) ||
+			(inputNo >= 91 && inputNo <= 103) ||
+			(inputNo >= 105 && inputNo <= 118)
+		) {
+			targetNo = inputNo - 1;
+		} else if (inputNo == 1) {
+			targetNo = 1;
+		} else if (inputNo == 58) {
+			targetNo = 118;
+		} else if (inputNo == 72) {
+			targetNo = 57;
+		} else if (inputNo == 90) {
+			targetNo = 71;
+		} else if (inputNo == 104) {
+			targetNo = 89;
+		}
+	}
+	switch (targetNo.toString().length) {
+		case 1:
+			targetName = 'input00' + targetNo;
+			break;
+		case 2:
+			targetName = 'input0' + targetNo;
+			break;
+		case 3:
+			targetName = 'input' + targetNo;
+			break;
+	}
+	return targetName;
+}
 
 elements = [
 	'H',
